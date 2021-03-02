@@ -10,7 +10,6 @@
 #include "Observador.h"
 
 using namespace std;
-
 class Observable {
   private:
     vector<Observador*> observadores;
@@ -23,6 +22,9 @@ class Observable {
             observadores.at(pos)->update(pAccion);
         }
     }
+
+    virtual void addObserver(Observador& obs) = 0;
+    virtual void removeObserver(Observador& obs) = 0;
 //  ------- ejemplo del input ----- casi que lo pueden copiar y pegar
 /*
     void input(){
