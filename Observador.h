@@ -8,12 +8,12 @@
 #include "Observable.h"
 
 class Observador {
-private:
+protected:
     Observable* obser;
 
 public:
 
-    virtual void update(int pAccion) = 0;
+    virtual void update() = 0;
 
 };
 
