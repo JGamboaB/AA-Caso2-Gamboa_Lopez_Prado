@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+
 #include "Observador.h"
 
 using namespace std;
