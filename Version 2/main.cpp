@@ -1,4 +1,13 @@
 #include "Subject.h"
+#include "AA-Caso2-Gamboa_Lopez_Prado/Version 2/Persona.h"
+#include "AA-Caso2-Gamboa_Lopez_Prado/Version 2/Lista.h"
+#include "AA-Caso2-Gamboa_Lopez_Prado/Version 2/Pila.h"
+#include "AA-Caso2-Gamboa_Lopez_Prado/Version 2/Cola.h"
+
+struct person{
+    int id;
+    string name;
+}per1,per2,per3;
 
 int menu(){
     int opt;
@@ -16,7 +25,89 @@ int menu(){
     return --opt;
 }
 
+void ejercicio1() {
+    Persona p1 (01,"Daniel");
+    Persona p2 (02,"Alonso");
+    Persona p3 (03,"Ana");
+
+    per1.id = 1;
+    per1.name = "Daniel";
+    per2.id = 2;
+    per2.name = "Edgar";
+    per3.id = 3;
+    per3.name = "Ana";
+    person perAux;
+
+    Cola <Persona>colClase = Cola<Persona>();
+    Pila <Persona>pilClase = Pila<Persona>();
+
+    Cola <person>colStruct = Cola<person>();
+    Pila <person>pilStruct = Pila<person>();
+
+    //inQueue de los parametros
+
+    colStruct.inQueue(per1);
+    colStruct.inQueue(per2);
+    colStruct.inQueue(per3);
+
+    colClase.inQueue(p1);
+    colClase.inQueue(p2);
+    colClase.inQueue(p3);
+
+    pilClase.inQueue(p1);
+    pilClase.inQueue(p2);
+    pilClase.inQueue(p3);
+
+    pilStruct.inQueue(per1);
+    pilStruct.inQueue(per2);
+    pilStruct.inQueue(per3);
+
+    //outQueue con print
+
+    std::cout<<"Print Cola con Struct"<<endl;
+    perAux = colStruct.outQueue();          //pop y print info
+    std::cout<<"Id: " << perAux.id <<endl;
+    std::cout<<"Name: " << perAux.name<<endl<<endl;
+
+    perAux = colStruct.outQueue();          //get y print info
+    std::cout<<"Id: " << perAux.id<<endl;
+    std::cout<<"Name: " << perAux.name<<endl<<endl;
+
+    perAux = colStruct.outQueue();          //get y print info
+    std::cout<<"Id: " << perAux.id<<endl;
+    std::cout<<"Name: " << perAux.name<<endl<<endl;
+
+
+    std::cout<<"Print Pila con Struct"<<endl;
+    perAux = pilStruct.outQueue();   //pop y print info
+    std::cout<<"Id: " << perAux.id<<endl;
+    std::cout<<"Name: " << perAux.name<<endl<<endl;
+
+    perAux = pilStruct.outQueue();   //get y print info
+    std::cout<<"Id: " << perAux.id<<endl;
+    std::cout<<"Name: " << perAux.name<<endl<<endl;
+
+    perAux = pilStruct.outQueue();   //get y print info
+    std::cout<<"Id: " << perAux.id<<endl;
+    std::cout<<"Name: " << perAux.name<<endl<<endl;
+
+
+    std::cout<<"Print Cola con Clase"<<endl;
+    colClase.outQueue().printInfo();
+    colClase.outQueue().printInfo();
+    colClase.outQueue().printInfo();
+
+
+    std::cout<<"Print Pila con Clase"<<endl;
+    pilClase.outQueue().printInfo();
+    pilClase.outQueue().printInfo();
+    pilClase.outQueue().printInfo();
+}
+
 int main(){
+
+    ejercicio1();
+
     Subject* subj = new Subject();
 
     TV* tv = new TV(subj);
